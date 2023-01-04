@@ -20,7 +20,7 @@ fn _4_1_ownership_by_string() {
 
     let s1 = String::from("hello");
     let s2 = s1; // 소유권이 이동(move)됨.  shallow copy와 유사하지만 s1는 무효화됨.
-    let s3 = s2.clone(); // deep copy. 메모리가 복사됨.
+    let s3 = s2.clone(); // deep copy. 메모리가 복사됨
 
     // println!("{}", s1); // panic! value borrowed here after move
     println!("{}", s2);
@@ -46,3 +46,13 @@ fn makes_copy(some_integer: i32) {
     // some_integer이 스코프 안으로 들어왔습니다.
     println!("{}", some_integer);
 } // 여기서 some_integer가 스코프 밖으로 벗어났습니다. 별다른 일은 발생하지 않습니다.
+
+fn test2() {
+    let mut s = String::from("hello");
+    let r1 = &s;
+    let r2 = &s;
+    println!("{} {}", r1, r2);
+    let r3 = &mut s;
+    // println!("{} {} {}", r1, r2, r3);
+    println!("{}", r3);
+}
