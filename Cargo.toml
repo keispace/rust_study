@@ -1,0 +1,6 @@
+[workspace]
+members = [
+    "comprehensive_rust/*",
+    "rust_by_example/*",
+    "rust_lang_book/*",
+]
