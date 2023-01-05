@@ -1,20 +1,16 @@
 #![allow(dead_code, unreachable_code, unused_labels, unreachable_patterns)]
 
-mod for_control;
-mod if_control;
-mod loop_control;
-mod match_control;
-mod while_control;
+mod controls;
 
 fn main() {
-    if_control::example();
-    if_control::let_example();
-    loop_control::example();
-    while_control::example();
-    while_control::let_example();
-    for_control::example();
-    match_control::example();
-    match_control::destructure();
-    match_control::guards();
-    match_control::binding();
+    controls::if_control::example();
+    controls::if_control::let_example();
+    controls::loop_control::example();
+    controls::while_control::example();
+    controls::while_control::let_example();
+    controls::for_control::example();
+    controls::match_control::example();
+    controls::match_control::destructure();
+    controls::match_control::guards();
+    controls::match_control::binding();
 }
