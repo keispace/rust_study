@@ -20,3 +20,5 @@ cargo build -r
 - 릴리즈(-r. 생략시 디버그) 버전 빌드
 cargo test 
 - test 어트리뷰트, 문서주석 테스트. 
+cargo doc --open
+- 문서화 페이지 작성 및 오픈. (swagger)

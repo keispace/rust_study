@@ -8,6 +8,7 @@
 
 // extern crate _11_crates_lib;  // ~2015전버전
 
+/// 이건 문서화 주석
 fn main() {
     let a = _11_crates_lib::add(1, 2);
     println!("Hello, world!: {}", a);
