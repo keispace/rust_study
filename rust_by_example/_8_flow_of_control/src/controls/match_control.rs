@@ -65,10 +65,10 @@ pub fn destructure() {
     }
 
     println!("----- pointer/ref -----");
-    let reference = &3;
-    let ref reference2 = 4;
     let immutable_value = 5;
     let mut mutable_value = 6;
+    let reference = &3;
+    let ref reference2 = 4;
 
     match reference {
         &val => println!("참조값은 역구조화해서 접근: {:?}", val),
@@ -77,7 +77,7 @@ pub fn destructure() {
         val => println!("미리 역참조 선언해서 접근: {:?}", val),
     }
     match immutable_value {
-        ref r => println!("변수 값에 대한 참조 접근: {:?}", r),
+        ref r => println!("불변 변수 값에 대한 참조 접근: {:?}", r),
     }
     match mutable_value {
         ref mut m => {
@@ -111,8 +111,10 @@ pub fn guards() {
         Temperature::Celsius(t) => println!("{}C is below 30 Celsius", t),
         Temperature::Fahrenheit(t) if t > 86 => println!("{}F is above 86 Fahrenheit", t),
         Temperature::Fahrenheit(t) => println!("{}F is below 86 Fahrenheit", t),
+        _ => println!("아무것도 없음"),
     }
 }
+
 pub fn binding() {
     println!("----- binding -----");
     fn some_number() -> Option<u32> {

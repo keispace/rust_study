@@ -17,9 +17,9 @@ pub fn closures() {
 
     /*
     함수 제너릭 타입
-    fn: &T
-    fnMut: mut &T
-    fnOnce: T
+    fn: &T (&self)
+    fnMut: &mut T (&mut self)
+    fnOnce: T(self)
     */
     fn apply<F: FnOnce()>(f: F)
     // where
@@ -36,7 +36,8 @@ pub fn closures() {
         println!("Then I screamed {}.", farewell); // FnMut
         println!("Now I can sleep. zzzzz");
         mem::drop(farewell); // FnOnce
-        println!("x: {}", x); // Fn, FnMut, FnOnce 필요.(캡처 -> 제너릭에서 익명타입으로 캡쳐)
+        println!("x: {}", x);
+        // Fn, FnMut, FnOnce 필요.(캡처 -> 제너릭에서 익명타입으로 캡쳐)
     };
     apply(diary);
     //함수/클로저를 인자로 받는경우 fn을 만족하는 함수여야함.
@@ -62,4 +63,32 @@ pub fn closures() {
     fn_plain();
     fn_mut();
     fn_once();
+}
+
+pub fn capturing() {
+    let mut x = 5;
+    let y = 10;
+
+    // capture by reference
+    let closure1 = || {
+        println!("x: {}", x);
+        println!("y: {}", y);
+    };
+    closure1();
+    x = 1;
+    // closure1(); //cannot assign to `x` because it is borrowed
+
+    println!("x: {}", x);
+    println!("y: {}", y);
+
+    // capture by value
+    let closure2 = move || {
+        println!("x: {}", x);
+        println!("y: {}", y);
+    };
+    closure2();
+    x = 55;
+    closure2(); // move ownership
+    println!("x: {}", x);
+    println!("y: {}", y);
 }

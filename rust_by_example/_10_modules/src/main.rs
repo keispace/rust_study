@@ -8,6 +8,7 @@
 
 mod visibility; // visibility/mod.rs or ./visibility.rs
 use visibility::structs::my;
+
 fn main() {
     visibility::public_mod::public_fn();
     visibility::public_mod::indirect_fn();
@@ -16,5 +17,5 @@ fn main() {
     let closed_new_box = my::ClosedBox::new("C");
     // println!("{}", closed_new_box.contents);
     let cnb_content = closed_new_box.get_contents().to_owned().to_owned();
-    println!("{}", cnb_content);
+    println!("closed new box's content: {}", cnb_content);
 }

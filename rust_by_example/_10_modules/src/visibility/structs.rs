@@ -4,7 +4,7 @@ pub mod my {
     }
 
     pub struct ClosedBox<T> {
-        contents: T,
+        contents: T, // private. cannot create `let c_box = ClosedBox {contents:""} `
     }
 
     impl<T> ClosedBox<T> {

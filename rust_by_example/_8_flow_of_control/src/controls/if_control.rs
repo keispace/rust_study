@@ -19,6 +19,7 @@ pub fn example() {
     println!("=> {0} -> {1}", n, cal_n);
 }
 
+#[test]
 pub fn let_example() {
     // 패턴 매칭 중 일부만 필요할때.(전체는 match)
     println!("----- if let -----");
@@ -29,4 +30,16 @@ pub fn let_example() {
     } else {
         println!("Missing name?");
     }
+    println!("----- from binding -----");
+    fn some_number() -> Option<u32> {
+        Some(42)
+    }
+    if let Some(n @ 42) = some_number() {
+        println!("The Answer is {}!", n); //값이 42인당걸 n에 할당
+    }
+    // match some_number() {
+    //     Some(n) => println!("Not interesting... {}", n),  // 그 외 값
+    //     None => println!("return None(Null)"),            // options.None
+    //     _ => (),                                          //default 여기서는 None과 같음
+    // }
 }
