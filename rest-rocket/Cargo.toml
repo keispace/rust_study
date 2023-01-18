@@ -6,3 +6,6 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
+rocket = { version = "0.5.0-rc.2", features = ["json"] }
+utoipa = { version = "2", features = ["rocket_extras"] }
+utoipa-swagger-ui = { version = "3.0.1", features = ["rocket"] }
