@@ -15,6 +15,7 @@ pub fn example() {
     let binary = match boolean {
         false => 0,
         true => 1,
+        // _ => 2
     };
 
     println!("{} -> {}", boolean, binary);
@@ -54,7 +55,7 @@ pub fn destructure() {
         Color::Red => println!("The color is Red!"),
         Color::Blue => println!("The color is Blue!"),
         Color::Green => println!("The color is Green!"),
-        Color::RGB(r, g, b) => println!("Red: {}, green: {}, and blue: {}!", r, g, b),
+        // Color::RGB(.. , b) => println!("Red: {}, green: {}, and blue: {}!", r, g, b),
         Color::HSV(h, s, v) => println!("Hue: {}, saturation: {}, value: {}!", h, s, v),
         Color::HSL(h, s, l) => println!("Hue: {}, saturation: {}, lightness: {}!", h, s, l),
         Color::CMY(c, m, y) => println!("Cyan: {}, magenta: {}, yellow: {}!", c, m, y),
@@ -62,6 +63,7 @@ pub fn destructure() {
             "Cyan: {}, magenta: {}, yellow: {}, key (black): {}!",
             c, m, y, k
         ),
+        _ => (),
     }
 
     println!("----- pointer/ref -----");

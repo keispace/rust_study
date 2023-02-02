@@ -7,7 +7,8 @@ fn main() {
     /*
     블록 주석
      */
-    /// cargo test 시에는 컴파일 되는 문서 주석
+    /// 문서주석
+
     println!("Hello, world!");
 
     // rust formatted print

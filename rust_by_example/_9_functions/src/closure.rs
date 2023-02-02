@@ -1,5 +1,6 @@
 use std::mem;
 
+#[test]
 pub fn closures() {
     // closures
     fn is_function(i: i32) -> i32 {
@@ -9,11 +10,13 @@ pub fn closures() {
 
     //값 캡쳐링
     let haystack = vec![1, 2, 3];
-    let contains = move |needle| haystack.contains(needle);
+    let a = haystack.clone();
+
+    let contains = move |needle| a.contains(needle);
 
     println!("{}", contains(&1));
     println!("{}", contains(&4));
-    // println!("There're {} elements in vec", haystack.len()); // <-- move면 에러
+    println!("There're {} elements in vec", haystack.len()); // <-- move면 에러
 
     /*
     함수 제너릭 타입
@@ -21,9 +24,9 @@ pub fn closures() {
     fnMut: &mut T (&mut self)
     fnOnce: T(self)
     */
-    fn apply<F: FnOnce()>(f: F)
-    // where
-    //     F: FnOnce(),
+    fn apply<F>(f: F)
+    where
+        F: FnOnce(),
     {
         f();
     }
@@ -65,6 +68,7 @@ pub fn closures() {
     fn_once();
 }
 
+#[test]
 pub fn capturing() {
     let mut x = 5;
     let y = 10;
@@ -76,7 +80,7 @@ pub fn capturing() {
     };
     closure1();
     x = 1;
-    // closure1(); //cannot assign to `x` because it is borrowed
+    //closure1(); //cannot assign to `x` because it is borrowed
 
     println!("x: {}", x);
     println!("y: {}", y);

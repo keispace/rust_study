@@ -12,7 +12,12 @@ impl Person {
     }
 }
 
+#[test]
 pub fn example() {
     let peter = Person::new(String::from("Peter"), 27);
     peter.say_hello();
+
+    let a = &&&&7;
+    let b = a.to_owned();
+    let c = b.to_owned();
 }

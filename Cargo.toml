@@ -4,6 +4,7 @@ members = [
     "rust_by_example/*",
     "rust_lang_book/*",
     "yew-app",
-    "rest-rocket"
+    "rest-rocket","rest-actix",
+    "playground"
 ]
 exclude = ["rust_lang_book/_1_2_hello_world"]

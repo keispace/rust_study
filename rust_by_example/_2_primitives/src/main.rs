@@ -19,3 +19,11 @@ fn main() {
     println!("Matrix:\n{}", matrix);
     println!("Transpose:\n{}", transpose(matrix));
 }
+
+#[test]
+fn array() {
+    let arr = [1, 2, 3, 4, 5];
+    println!("{arr:?}");
+    println!("{:?}", &arr[..1]);
+    println!("{:?}", &arr[0..=1]);
+}
